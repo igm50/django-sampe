@@ -1,0 +1,12 @@
+services:
+  app:
+    build: ./app
+    volumes:
+      - ../src:/usr/app
+    tty: true
+  database:
+    image: mysql:8.0.26
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: password
